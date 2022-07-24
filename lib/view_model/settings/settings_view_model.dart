@@ -97,7 +97,7 @@ abstract class SettingsViewModelBase with Store {
     //}
 
 
-    sections = [
+    getSections = () => [
       [
         SwitcherListItem(
             title: S.current.settings_display_balance,
@@ -110,7 +110,7 @@ abstract class SettingsViewModelBase with Store {
               }
             },
         ),
-        if (!isHaven)
+        if (!isHaven && !shouldDisableFiat)
           PickerListItem(
               title: S.current.settings_currency,
               searchHintText: S.current.search_currency,
@@ -207,6 +207,12 @@ abstract class SettingsViewModelBase with Store {
                 setAllowBiometricalAuthentication(value);
               }
             }),
+        SwitcherListItem(
+          title: S.current.disable_fiat,
+          value: () => shouldDisableFiat,
+          onValueChange: (_, bool value) =>
+              setShouldDisableFiat(value)
+        ),
         ChoicesListItem(
           title: S.current.color_theme,
           items: ThemeList.all,
@@ -268,6 +274,10 @@ abstract class SettingsViewModelBase with Store {
       _settingsStore.shouldSaveRecipientAddress;
 
   @computed
+  bool get shouldDisableFiat =>
+      _settingsStore.shouldDisableFiat;
+
+  @computed
   bool get allowBiometricalAuthentication =>
       _settingsStore.allowBiometricalAuthentication;
 
@@ -277,7 +287,7 @@ abstract class SettingsViewModelBase with Store {
   bool get isBitcoinBuyEnabled => _settingsStore.isBitcoinBuyEnabled;
 
   final Map<String, String> itemHeaders;
-  List<List<SettingsListItem>> sections;
+  List<List<SettingsListItem>> Function() getSections;
   final SettingsStore _settingsStore;
   final YatStore _yatStore;
   final WalletType _walletType;
@@ -294,6 +304,10 @@ abstract class SettingsViewModelBase with Store {
   @action
   void setShouldSaveRecipientAddress(bool value) =>
       _settingsStore.shouldSaveRecipientAddress = value;
+
+  @action
+  void setShouldDisableFiat(bool value) =>
+      _settingsStore.shouldDisableFiat= value;
 
   @action
   void setAllowBiometricalAuthentication(bool value) =>

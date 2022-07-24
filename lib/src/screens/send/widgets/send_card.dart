@@ -329,6 +329,8 @@ class SendCardState extends State<SendCard>
                             ],
                           ),
                         )),
+                    sendViewModel.balanceViewModel.disableFiat ?
+                    Container () :
                     Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: BaseTextFormField(
@@ -437,7 +439,8 @@ class SendCardState extends State<SendCard>
                                           Padding(
                                               padding:
                                               EdgeInsets.only(top: 5),
-                                              child: Text(
+                                              child: sendViewModel.balanceViewModel.disableFiat ?
+                                                Container () : Text(
                                                   output
                                                       .estimatedFeeFiatAmount
                                                       +  ' ' +
