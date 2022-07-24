@@ -22,5 +22,12 @@ class PreferencesKey {
   static const bitcoinTransactionPriority = 'current_fee_priority_bitcoin';
   static const shouldShowReceiveWarning = 'should_show_receive_warning';
   static const shouldShowYatPopup = 'should_show_yat_popup';
+<<<<<<< HEAD
   static const shouldDisableFiatKey = 'disable_fiat';
+=======
+  static const moneroWalletPasswordUpdateV1Base = 'monero_wallet_update_v1';
+
+  static String moneroWalletUpdateV1Key(String name)
+    => '${PreferencesKey.moneroWalletPasswordUpdateV1Base}_${name}';
+>>>>>>> b72443a8c4f2fb50e34a7e5510afb52cf13f366d
 }
