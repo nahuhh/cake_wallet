@@ -677,5 +677,10 @@
   "disabled": "Huwag paganahin",
   "enabled": "Paganahin",
   "tor_only": "Tor lamang",
-  "unmatched_currencies": "Hindi tumutugma ang pera ng iyong kasalukuyang wallet sa na-scan na QR"
+  "unmatched_currencies": "Hindi tumutugma ang pera ng iyong kasalukuyang wallet sa na-scan na QR",
+  "orbot_running_alert": "Pakitiyak na tumatakbo ang Orbot bago kumonekta sa node.",
+  "contact_list_contacts": "Mga Contact",
+  "contact_list_wallets": "Mga Wallet Ko",
+  "do_not_send": "Huwag ipadala",
+  "error_dialog_content": "May error, Mangyaring ipadala ang ulat ng pag-crash sa aming support team upang gawing mas mahusay ang aplikasyon."
 } 
